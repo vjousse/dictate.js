@@ -34,13 +34,22 @@ var dictate = new Dictate({
 		},
 		onPartialResults : function(hypos) {
 			// TODO: demo the case where there are more hypos
-			tt.add(hypos[0].transcript, false);
-			__updateTranscript(tt.toString());
+		    transcript = hypos[0].transcript;
+            transcript = transcript.replace(/<unk>/g, '').trim()
+            if(transcript != '.') {
+                tt.add(transcript, false);
+                __updateTranscript(tt.toHtml());
+            }
 		},
 		onResults : function(hypos) {
 			// TODO: demo the case where there are more results
-			tt.add(hypos[0].transcript, true);
-			__updateTranscript(tt.toString());
+		    transcript = hypos[0].transcript;
+            transcript = transcript.replace(/<unk>/g, '').trim()
+            console.log("Add text to transcription content -" + transcript + "-");
+            if(transcript != '') {
+                tt.add(hypos[0].transcript, true);
+                __updateTranscript(tt.toHtml());
+            }
 			// diff() is defined only in diff.html
 			if (typeof(diff) == "function") {
 				diff();
@@ -74,7 +83,13 @@ function __serverStatus(msg) {
 }
 
 function __updateTranscript(text) {
-	$("#trans").val(text);
+	$("#transcription-content").html(text);
+
+    var transcriptionDiv = $('#transcription-content');
+    var transcriptionHeight = transcriptionDiv.height();
+
+    transcriptionHeight += transcriptionDiv.height();
+    transcriptionDiv.scrollTop(transcriptionHeight);
 }
 
 // Public methods (called from the GUI)
@@ -87,7 +102,7 @@ function clearLog() {
 
 function clearTranscription() {
 	tt = new Transcription();
-	$("#trans").val("");
+	$("#transcription-content").val("");
 }
 
 function startListening() {
