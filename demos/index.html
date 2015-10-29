@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Démo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,300' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="theme/css/main.css" />
+    <link href="theme/css/bootstrap.css" rel="stylesheet">
+    <link href="theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href="theme/css/theme.css" rel="stylesheet">
+    <link href="theme/css/colour.css" rel="stylesheet" type="text/css"/>
+    <link href="theme/css/main.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div class="container wrapper" style="height:100%; padding-bottom:0px">
+    <div class="inner_content" style="height:100%;">
+
+        <div class="row" style="padding-bottom: 30px;">
+            <div class="col-md-3 text-left">
+                <a href="http://www.voxolab.com/"><img src="theme/img/logo_voxolab.png" style="height: 66px;" alt="Logo Voxolab" /></a>
+            </div>
+            <div class="col-md-3 text-center">
+
+            </div>
+            <div class="col-md-3 text-center">
+            </div>
+            <div class="col-md-3 text-right">
+                <a href="http://www-lium.univ-lemans.fr/"><img src="theme/img/logo_lium.png" style="height: 66px;" alt="Logo LIUM" /></a>
+            </div>
+        </div>
+
+        <div id="main" style="height:100%">
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="turn txt-left">
+                        <div class="quote_sections turn-header">
+                            <div class=" testimonial-icon-disc cont-large pull-right"><i class=" fa fa-pencil testimonial-icon-large magnolia"></i></div>
+                            <span>TRANSCRIPTION</span>
+                        </div>
+                        <div class="bs-example">
+
+                            <div id="transcription">
+                                <div id="transcription-content">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12">
+
+
+<div class="controls">
+<button
+	onclick="init();"
+	title="Request access to the microphone">Init</button>
+
+<button
+	onclick="showConfig();"
+	title="Show the configuration of the Dictate object">Config</button>
+
+<button
+	onclick="clearLog();"
+	title="Clear the log">Clear log</button>
+
+
+
+<button
+	id="buttonStart"
+	onclick="startListening();"
+	title="Starts listening for speech, i.e. starts recording and transcribing.">Start</button>
+<button
+	id="buttonStop"
+	onclick="stopListening();"
+	title="Stops listening for speech. Speech captured so far will be recognized as if the user had stopped speaking at this point. Note that in the default case, this does not need to be called, as the speech endpointer will automatically stop the recognizer listening when it determines speech has completed.">Stop</button>
+<button
+	id="buttonCancel"
+	onclick="cancel();"
+	title="Cancels the speech recognition.">Cancel</button>
+</div>
+
+
+<pre id="log">
+</pre>
+<!--
+                    <div class="turn txt-left">
+                        <div class="quote_sections turn-header">
+                            <div class=" testimonial-icon-disc cont-large pull-right"><i class=" fa fa-comments-o testimonial-icon-large magnolia"></i></div>
+                            <span>TRADUCTION</span>
+                        </div>
+                        <div class="bs-example">
+                            <div id="translation">
+                                <div id="translation-content">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+-->
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+<!-- SCRIPTS -->
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="theme/js/jquery-1.11.1.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="theme/js/bootstrap.min.js"></script>
+
+<script src="../lib/dictate.js"></script>
+<script src="../lib/recorder.js"></script>
+<script src="demo.js"></script>
+
+</body>
+</html>
